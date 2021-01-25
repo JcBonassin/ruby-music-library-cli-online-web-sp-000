@@ -1,5 +1,6 @@
 class Artist
   attr_accessor :name
+  attr_reader :songs
 
 
   @@all = []
@@ -29,5 +30,7 @@ class Artist
     # Or, as a one-liner:
     # new(name).tap{ |a| a.save }
   end
+
+
 
 end
