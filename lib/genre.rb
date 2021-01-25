@@ -8,15 +8,6 @@ class Genre
       @@all << self
     end
 
-    def artist=(artist)
-      @artist = artist
-      artist.add_song(self)
-    end
-
-    def genre=(genre)
-      @genre = genre
-      genre.songs << self unless genre.songs.include?(self)
-    end
 
     def self.all
       @@all
@@ -29,5 +20,14 @@ class Genre
     def save
       self.class.all << self
     end
+
+    def self.create(name)
+    genre = new(name)
+    genre.save
+    genre
+
+    # Or, as a one-liner:
+    # new(name).tap{ |g| g.save }
+  end
 
 end
