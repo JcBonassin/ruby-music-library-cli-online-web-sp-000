@@ -1,24 +1,34 @@
 class Genre
-attr_accessor :name
+  attr_accessor :name
+    attr_reader :artist, :genre
 
-  @@all = []
+    @@all = []
 
-  def initialize(name)
-    @name = name
-    @songs = []
-  end
+    def initialize(name)
+      @name = name
+      @@all << self
+    end
 
-  def self.all
-    @@all
-  end
+    def artist=(artist)
+      @artist = artist
+      artist.add_song(self)
+    end
 
-  def self.destroy_all
-    all.clear
-  end
+    def genre=(genre)
+      @genre = genre
+      genre.songs << self unless genre.songs.include?(self)
+    end
 
-  def save
-    self.class.all << self
-  end
+    def self.all
+      @@all
+    end
 
+    def self.destroy_all
+      all.clear
+    end
+
+    def save
+      self.class.all << self
+    end
 
 end
