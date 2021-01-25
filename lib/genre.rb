@@ -30,4 +30,8 @@ class Genre
     # new(name).tap{ |g| g.save }
   end
 
+  def artists
+    songs.collect{ |s| s.artist }.uniq
+  end
+
 end
