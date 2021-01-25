@@ -3,14 +3,14 @@ class Song
 
   @@all = []
 
-  def initialize(name)
-    @name = name
-    @@all << []
-  end
-
   def self.all #Class reader
       @@all
     end
+
+  def initialize
+    @name = name
+    @@all << []
+  end
 
     def self.destroy_all
     @@all.clear
