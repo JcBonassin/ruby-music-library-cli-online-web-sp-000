@@ -15,6 +15,10 @@ class Artist
     @@all.clear
   end
 
+  def self.count
+    @@all.size
+  end
+
   def save
     @@all << self
   end
