@@ -8,8 +8,7 @@ class Song
     end
 
   def initialize
-    @name = name
-    @@all << []
+    save
   end
 
     def self.destroy_all
@@ -19,17 +18,6 @@ class Song
   def save
     @@all << self
   end
-
-  def self.create(name)
-    song = new(name)
-    song.save
-    song
-  end
-
-  def self.find_by_name(name)
-    all.detect{ |s| s.name == name }
-  end
-
 
 
 end
