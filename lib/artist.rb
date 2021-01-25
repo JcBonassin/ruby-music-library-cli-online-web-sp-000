@@ -3,14 +3,13 @@ class Artist
 
   @@all = []
 
-  def initialize(name)
-    @name = name
-    @@all << []
-  end
-
   def self.all #Class reader
       @@all
     end
+
+  def initialize
+    save
+  end
 
     def self.destroy_all
     @@all.clear
@@ -18,18 +17,6 @@ class Artist
 
   def save
     @@all << self
-  end
-
-  def self.create(name)
-    artist = new(name)
-    artist.save
-    artist
-  end
-
-
-  def add_song(song)
-    song.artist = self unless song.artist
-    songs << song unless songs.include?(song)
   end
 
 
